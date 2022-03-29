@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:resume_maker/custom_widget/square_box.dart';
-import 'package:resume_maker/screens/education_screen.dart';
+import 'package:resume_maker/screens/contact_info_screen.dart';
+import 'package:resume_maker/screens/level_of_study_screen.dart';
 import 'package:resume_maker/utils/constant.dart';
 
-class LevelOfStudyScreen extends StatefulWidget {
-  const LevelOfStudyScreen({Key? key}) : super(key: key);
+class EducationScreen extends StatefulWidget {
+  String? title;
+
+  EducationScreen({this.title, Key? key}) : super(key: key);
 
   @override
-  State<LevelOfStudyScreen> createState() => _LevelOfStudyScreenState();
+  State<EducationScreen> createState() => _EducationScreenState();
 }
 
-class _LevelOfStudyScreenState extends State<LevelOfStudyScreen> {
+class _EducationScreenState extends State<EducationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +25,7 @@ class _LevelOfStudyScreenState extends State<LevelOfStudyScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(AppConstant.strDoYouHaveWorkExperience,
+            Text(AppConstant.strDidYouGraduateFrom + " ${widget.title}?",
                 textAlign: TextAlign.center,
                 style: AppConstant.textStyle(AppConstant.fontSize28)),
             Row(
@@ -36,19 +39,18 @@ class _LevelOfStudyScreenState extends State<LevelOfStudyScreen> {
                     padding: const EdgeInsets.all(10),
                     radius: 8,
                     widget1: const Icon(
-                      Icons.school,
-                      color: AppConstant.clrBlack,
+                      Icons.done,
+                      color: AppConstant.clrGreen,
                       size: 50,
                     ),
                     widget2: const Text(
-                      AppConstant.strHighSchool,
-                      style: TextStyle(color: AppConstant.clrBlack),
+                      AppConstant.strYes,
+                      style: TextStyle(color: AppConstant.clrGreen),
                     ),
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EducationScreen(
-                                title: AppConstant.strHighSchool)))),
+                            builder: (context) => const ContactInfoScreen()))),
                 squareBox(context,
                     color: AppConstant.clrWhite,
                     width: AppConstant.displayWidth(context) * 0.27,
@@ -61,13 +63,13 @@ class _LevelOfStudyScreenState extends State<LevelOfStudyScreen> {
                       size: 50,
                     ),
                     widget2: const Text(
-                      AppConstant.strOther,
+                      AppConstant.strStillEnrolled,
                       style: TextStyle(color: AppConstant.clrBlack),
                     ),
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EducationScreen(title: '')))),
+                            builder: (context) => const ContactInfoScreen()))),
                 squareBox(context,
                     color: AppConstant.clrWhite,
                     width: AppConstant.displayWidth(context) * 0.27,
@@ -75,20 +77,19 @@ class _LevelOfStudyScreenState extends State<LevelOfStudyScreen> {
                     padding: const EdgeInsets.all(10),
                     radius: 8,
                     widget1: const Icon(
-                      Icons.account_balance,
-                      color: AppConstant.clrBlack,
+                      Icons.close,
+                      color: AppConstant.clrRed,
                       size: 50,
                     ),
                     widget2: const Text(
-                      AppConstant.strCollege,
+                      AppConstant.strNo,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: AppConstant.clrBlack),
+                      style: TextStyle(color: AppConstant.clrRed),
                     ),
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EducationScreen(
-                                title: AppConstant.strCollege)))),
+                            builder: (context) => const ContactInfoScreen()))),
               ],
             ),
           ],
