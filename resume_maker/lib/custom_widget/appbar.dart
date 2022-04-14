@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:resume_maker/utils/constant.dart';
 
 AppBar appbarWidget(BuildContext context,
-    {Widget? title, bool? isBack, String? icon1, bool? isWhiteBackIcon}) {
+    {Widget? title, bool? isBack, IconData? icon1, bool? isWhiteBackIcon, GestureTapCallback? onTap}) {
   return AppBar(
     elevation: 0,
     leading: isBack == true
@@ -22,9 +22,8 @@ AppBar appbarWidget(BuildContext context,
           ? Container()
           : Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GestureDetector(
-                  onTap: () {},
-                  child: Image.asset(icon1, height: 30, width: 30)),
+              child:
+                  GestureDetector(onTap: onTap, child: Icon(icon1, size: 30)),
             )
     ],
     backgroundColor: AppConstant.clrBlack,

@@ -9,6 +9,7 @@ class AppConstant {
   static const String strCreateNewResume = 'Create New Resume?';
   static const String strDoYouHaveWorkExperience =
       'Do you have work Experience?';
+  static const String strExperience = 'Experience';
   static const String strHighSchool = 'HighSchool';
   static const String strCollege = 'College / University';
   static const String strOther = 'Others';
